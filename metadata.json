@@ -1,0 +1,6 @@
+{
+  "name": "نجار مكة وجدة والطائف | أعمال النجارة والأثاث",
+  "description": "خدمات نجارة متكاملة وفك وتركيب وتصليح الأثاث والدواليب وغرف النوم والأبواب في مكة المكرمة، جدة، والطائف.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
