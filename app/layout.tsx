@@ -2,11 +2,6 @@ import type { Metadata } from 'next';
 import { IBM_Plex_Sans_Arabic } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/lib/site-config';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { MobileStickyCta } from '@/components/layout/MobileStickyCta';
-import { JsonLd } from '@/components/seo/JsonLd';
-import { ScrollProgress, PageTransition, ScrollToTopButton } from '@/components/ui/MotionComponents';
 
 const ibmPlexArabic = IBM_Plex_Sans_Arabic({
   subsets: ['arabic'],
@@ -85,16 +80,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className={ibmPlexArabic.variable}>
       <body className={`${ibmPlexArabic.className} min-h-screen flex flex-col bg-warm-bg text-charcoal selection:bg-sand selection:text-charcoal`} suppressHydrationWarning>
-        <ScrollProgress />
-        <JsonLd type="WebSite" />
-        <JsonLd type="LocalBusiness" />
-        <Header />
-        <main className="flex-1 w-full pb-16 sm:pb-20 lg:pb-0">
-          <PageTransition>{children}</PageTransition>
-        </main>
-        <Footer />
-        <ScrollToTopButton />
-        <MobileStickyCta />
+        {children}
       </body>
     </html>
   );
