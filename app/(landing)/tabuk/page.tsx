@@ -3,16 +3,18 @@ import Image from 'next/image';
 import { Hammer, DoorOpen, BedDouble, Wrench, MapPin, Check, ArrowLeft } from 'lucide-react';
 import { TabukContact } from '@/components/contact/TabukContact';
 
+const landingOrigin = process.env.TABUK_LANDING_ONLY === 'true' ? 'https://najjar-tabuk.vercel.app' : 'https://www.najjarmakkah.com';
+const landingUrl = `${landingOrigin}${process.env.TABUK_LANDING_ONLY === 'true' ? '/' : '/tabuk'}`;
 const title = 'نجار بتبوك | صيانة أبواب وفك وتركيب وصيانة غرف نوم';
 const description = 'تحتاج نجار في تبوك؟ صيانة الأبواب الخشبية، فك وتركيب غرف النوم وصيانة الدواليب والأثاث. أرسل صورة واسم الحي على واتساب أو اتصل على 0530471946.';
 export const metadata: Metadata = {
   title: { absolute: title }, description,
   applicationName: 'نجار تبوك', authors: [{ name: 'نجار تبوك' }],
   keywords: ['نجار بتبوك', 'صيانة أبواب تبوك', 'فك غرف نوم تبوك', 'صيانة غرف نوم تبوك'],
-  alternates: { canonical: process.env.TABUK_LANDING_ONLY === 'true' ? 'https://najjar-tabuk.vercel.app/' : '/tabuk' },
+  alternates: { canonical: landingUrl },
   robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
-  openGraph: { title, description, siteName: 'نجار تبوك', locale: 'ar_SA', type: 'website', url: 'https://najjar-tabuk.vercel.app/', images: [{url: 'https://najjar-tabuk.vercel.app/images/tabuk/wardrobe.webp', alt: 'دولاب خشبي بأبواب زجاجية'}] },
-  twitter: { card: 'summary_large_image', title, description, images: ['https://najjar-tabuk.vercel.app/images/tabuk/wardrobe.webp'] },
+  openGraph: { title, description, siteName: 'نجار تبوك', locale: 'ar_SA', type: 'website', url: landingUrl, images: [{url: `${landingOrigin}/images/tabuk/wardrobe.webp`, alt: 'دولاب خشبي بأبواب زجاجية'}] },
+  twitter: { card: 'summary_large_image', title, description, images: [`${landingOrigin}/images/tabuk/wardrobe.webp`] },
 };
 const services = [
   { icon: DoorOpen, title: 'صيانة الأبواب', text: 'ضبط الأبواب التي تحتك بالأرض أو لا تغلق جيدًا، وفحص المفصلات والأقفال حسب حالة الباب.' },
